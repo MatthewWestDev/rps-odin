@@ -34,7 +34,18 @@
     // Get the human choice
     //     function getHumanChoice
     //         prompt return Rock Paper Scissors
+    //         convert to lowercase then capitalize the first letter
     //         log result
+
+        function getHumanChoice() {
+            const choice = prompt("Type either Rock, Paper or Scissors.");
+            const lowerCaseChoice = choice.toLowerCase();
+            const titleCaseChoice = lowerCaseChoice.charAt(0).toUpperCase() + lowerCaseChoice.substring(1);
+            //      add option to prompt again if they enter an invalid string?
+            return titleCaseChoice;
+        }
+
+        console.log("You chose " + getHumanChoice());
 
     // Global scores
         let computerScore = 0;
