@@ -10,27 +10,6 @@
     <script>
 
 
-
-    // Get the computer choice
-    //     function getComputerChoice
-    //         randomly return one of Rock Paper Scissors
-    //         log result
-
-        function getComputerChoice() {
-            const choices = ["Rock", "Paper", "Scissors"]; 
-            
-            // Array items 0, 1, 2
-            
-            const random = Math.floor(Math.random() * choices.length); 
-            return choices[random];
-            
-            // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
-
-            // console.log("Computer chose " + choices[random]);
-        }
-        console.log("Computer chose " + getComputerChoice());
-
-
     // Get the human choice
     //     function getHumanChoice
     //         prompt return Rock Paper Scissors
@@ -47,9 +26,34 @@
 
         console.log("You chose " + getHumanChoice());
 
+
+    // Get the computer choice
+    //     function getComputerChoice
+    //         randomly return one of Rock Paper Scissors
+    //         log result
+
+    function getComputerChoice() {
+            const choices = ["Rock", "Paper", "Scissors"]; 
+            
+            // Array items 0, 1, 2
+            
+            const random = Math.floor(Math.random() * choices.length); 
+            return choices[random];
+            
+            // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
+
+            // console.log("Computer chose " + choices[random]);
+        }
+        console.log("Computer chose " + getComputerChoice());
+
+
+
     // Global scores
         let computerScore = 0;
         let humanScore = 0;
+
+        console.log("You: " + humanScore + " Computer: " + computerScore);
+
 
     // function playGame
 
