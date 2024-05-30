@@ -7,77 +7,50 @@
 </head>
 <body>
     <h1>Rock Paper Scissors JS</h1>
+    <h3>Open your browser console and play five rounds to see if you can win.</h3>
     <script>
 
-      // function playGame
-        function playGame() {
+function playGame() {
 
-    // Global scores
         let computerScore = 0;
-            // increase score by one
-            function incrementComputerScore() {
-                computerScore++;
-            }
         let humanScore = 0;
-            // increase score by one
-            function incrementHumanScore() {
-                humanScore++;
-            }
 
-
-    //         prompt return Rock Paper Scissors
-    //         convert to lowercase then capitalize the first letter
-    //         assign humanChoice to the result
+        let roundCounter = 0;
 
         function getHumanChoice() {
-            const choice = prompt("Type either Rock, Paper or Scissors.");
-            const lowerCaseChoice = choice.toLowerCase();
+            const choice = prompt("Type either Rock, Paper or Scissors.");  // Get the human choice with a prompt to return Rock Paper or Scissors
+            const lowerCaseChoice = choice.toLowerCase();  // convert to lowercase then capitalize the first letter
             const titleCaseChoice = lowerCaseChoice.charAt(0).toUpperCase() + lowerCaseChoice.substring(1);
             //      add option to prompt again if they enter an invalid string?
             return titleCaseChoice;
         }
 
         function getComputerChoice() {
-            const choices = ["Rock", "Paper", "Scissors"]; // Array items 0, 1, 2
-
-            // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
-            
-            const random = Math.floor(Math.random() * choices.length); 
+            const choices = ["Rock", "Paper", "Scissors"];  // Array items 0, 1, 2            
+            const random = Math.floor(Math.random() * choices.length);  // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
             return choices[random];
         }
 
   
 
-    // Play a single round
 
-        function playRound() {
+    function playRound() {
 
-   // Get the human choice
             const humanChoice = getHumanChoice();
-            console.log("You chose: " + humanChoice);
-
-    // Get the computer choice
             const computerChoice = getComputerChoice();
-            console.log("Computer chose: " + computerChoice);
                
             if (humanChoice == computerChoice) {
                 console.log("Draw! " + humanChoice + " vs. " + computerChoice);
-                console.log("You: " + humanScore + " Computer: " + computerScore);
-
             } else if (humanChoice == "Rock" && computerChoice == "Paper" || humanChoice == "Paper" && computerChoice == "Scissors" || humanChoice == "Scissors" && computerChoice == "Rock") {
                 console.log("Point for Computer! " + "You chose: " + humanChoice + " vs. " + "Computer chose: " + computerChoice);
-                incrementComputerScore();
+                computerScore++;  // score increment
             } else if (humanChoice == "Rock" && computerChoice == "Scissors" || humanChoice == "Paper" && computerChoice == "Rock" || humanChoice == "Scissors" && computerChoice == "Paper") {
                 console.log("Point for You! " + "You chose: " + humanChoice + " vs. " + "Computer chose: " + computerChoice);
-                incrementHumanScore();
+                humanScore++; // score increment
             } 
-
-            console.log("You: " + humanScore + " Computer: " + computerScore);
-
-
-    //             log the round result You win or You lose
-    //             increase score for the winner
-}
+            roundCounter++;  // increment round counter
+            console.log("Round: " + roundCounter + " You: " + humanScore + " Computer: " + computerScore);
+    }
 
     // Call playRound five times
     playRound();
@@ -86,7 +59,19 @@
     playRound();
     playRound();
 
-    // The player with the highest score is the winner
+ // The player with the highest score is the winner or it's a draw
+
+    function showWinner() {
+        if (computerScore > humanScore) {
+            console.log("You Lose!");
+        } else if (humanScore > computerScore) {
+            console.log("You Win!");
+        } else {
+            console.log("Draw!");
+        }
+    }
+    showWinner();
+
 
 }
 playGame();
