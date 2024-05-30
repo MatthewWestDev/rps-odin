@@ -9,43 +9,59 @@
     <h1>Rock Paper Scissors JS</h1>
     <script>
 
-console.log("Hello.");
 
 
-    </script>
+    // Get the computer choice
+    //     function getComputerChoice
+    //         randomly return one of Rock Paper Scissors
+    //         log result
 
-    Get the computer choice
-        function getComputerChoice
-            randomly return one of Rock Paper Scissors
-            log result
-    Get the human choice
-        function getHumanChoice
-            prompt return Rock Paper Scissors
-            log result
-    Global scores
-        computerScore is 0
-        humanScore is 0
+        function getComputerChoice() {
+            const choices = ["Rock", "Paper", "Scissors"]; 
+            
+            // Array items 0, 1, 2
+            
+            const random = Math.floor(Math.random() * choices.length); 
+            return choices[random];
+            
+            // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
 
-    function playGame
+            // console.log("Computer chose " + choices[random]);
+        }
+        console.log("Computer chose " + getComputerChoice());
 
-    Play a single round
-        function playRound
-            two parameters: humanChoice as case insensitive, computerChoice 
+
+    // Get the human choice
+    //     function getHumanChoice
+    //         prompt return Rock Paper Scissors
+    //         log result
+
+    // Global scores
+        let computerScore = 0;
+        let humanScore = 0;
+
+    // function playGame
+
+    // Play a single round
+    //     function playRound
+    //         two parameters: humanChoice as case insensitive, computerChoice 
                 
-                    if choices are the same then return a draw score 0
+    //                 if choices are the same then return a draw score 0
 
-                    if rock vs paper then paper wins
+    //                 if rock vs paper then paper wins
 
-                    if rock vs scissors then rock wins
+    //                 if rock vs scissors then rock wins
 
-                    if if paper vs scissors then scissors wins
+    //                 if if paper vs scissors then scissors wins
 
-                log the round result You win or You lose
-                increase score for the winner
+    //             log the round result You win or You lose
+    //             increase score for the winner
 
-    Call playRound five times
-    The player with the highest score is the winner
+    // Call playRound five times
+    // The player with the highest score is the winner
 
 
+
+</script>
 </body>
 </html>
