@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors - Odin</title>
 </head>
 <body>
     <h1>Rock Paper Scissors JS</h1>
     <script>
 
+      // function playGame
+        function playGame() {
 
-    // Get the human choice
-    //     function getHumanChoice
+    // Global scores
+        let computerScore = 0;
+            // increase score by one
+            function incrementComputerScore() {
+                computerScore++;
+            }
+        let humanScore = 0;
+            // increase score by one
+            function incrementHumanScore() {
+                humanScore++;
+            }
+
+
     //         prompt return Rock Paper Scissors
     //         convert to lowercase then capitalize the first letter
-    //         log result
+    //         assign humanChoice to the result
 
         function getHumanChoice() {
             const choice = prompt("Type either Rock, Paper or Scissors.");
@@ -24,58 +37,59 @@
             return titleCaseChoice;
         }
 
-        console.log("You chose " + getHumanChoice());
+        function getComputerChoice() {
+            const choices = ["Rock", "Paper", "Scissors"]; // Array items 0, 1, 2
 
-
-    // Get the computer choice
-    //     function getComputerChoice
-    //         randomly return one of Rock Paper Scissors
-    //         log result
-
-    function getComputerChoice() {
-            const choices = ["Rock", "Paper", "Scissors"]; 
-            
-            // Array items 0, 1, 2
+            // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
             
             const random = Math.floor(Math.random() * choices.length); 
             return choices[random];
-            
-            // Generating a random number from 0 inclusive to 1 exclusive and multiplies it by the array length which is 3 then rounds it down with Math.floor and gives a random integer between 0 and 2 inclusive and returns a random item from the array based off the array item number
-
-            // console.log("Computer chose " + choices[random]);
         }
-        console.log("Computer chose " + getComputerChoice());
 
-
-
-    // Global scores
-        let computerScore = 0;
-        let humanScore = 0;
-
-        console.log("You: " + humanScore + " Computer: " + computerScore);
-
-
-    // function playGame
+  
 
     // Play a single round
-    //     function playRound
-    //         two parameters: humanChoice as case insensitive, computerChoice 
-                
-    //                 if choices are the same then return a draw score 0
 
-    //                 if rock vs paper then paper wins
+        function playRound() {
 
-    //                 if rock vs scissors then rock wins
+   // Get the human choice
+            const humanChoice = getHumanChoice();
+            console.log("You chose: " + humanChoice);
 
-    //                 if if paper vs scissors then scissors wins
+    // Get the computer choice
+            const computerChoice = getComputerChoice();
+            console.log("Computer chose: " + computerChoice);
+               
+            if (humanChoice == computerChoice) {
+                console.log("Draw! " + humanChoice + " vs. " + computerChoice);
+                console.log("You: " + humanScore + " Computer: " + computerScore);
+
+            } else if (humanChoice == "Rock" && computerChoice == "Paper" || humanChoice == "Paper" && computerChoice == "Scissors" || humanChoice == "Scissors" && computerChoice == "Rock") {
+                console.log("Point for Computer! " + "You chose: " + humanChoice + " vs. " + "Computer chose: " + computerChoice);
+                incrementComputerScore();
+            } else if (humanChoice == "Rock" && computerChoice == "Scissors" || humanChoice == "Paper" && computerChoice == "Rock" || humanChoice == "Scissors" && computerChoice == "Paper") {
+                console.log("Point for You! " + "You chose: " + humanChoice + " vs. " + "Computer chose: " + computerChoice);
+                incrementHumanScore();
+            } 
+
+            console.log("You: " + humanScore + " Computer: " + computerScore);
+
 
     //             log the round result You win or You lose
     //             increase score for the winner
+}
 
     // Call playRound five times
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+
     // The player with the highest score is the winner
 
-
+}
+playGame();
 
 </script>
 </body>
