@@ -1,17 +1,25 @@
-function playGame() {
 
     let computerScore = 0;
     let humanScore = 0;
-
     let roundCounter = 0;
+    const rockButton = document.querySelector(".rock");
+    const paperButton = document.querySelector(".paper");
+    const scissorsButton = document.querySelector(".scissors");
 
-    function getHumanChoice() {
-        const choice = prompt("Type either Rock, Paper or Scissors.");  // Get the human choice with a prompt to return Rock Paper or Scissors
-        const lowerCaseChoice = choice.toLowerCase();  // convert to lowercase then capitalize the first letter
-        const titleCaseChoice = lowerCaseChoice.charAt(0).toUpperCase() + lowerCaseChoice.substring(1);
-        //      add option to prompt again if they enter an invalid string?
-        return titleCaseChoice;
-    }
+   
+
+    rockButton.addEventListener("click", () => {
+        humanChoice = "Rock";
+        playRound();
+    });
+    paperButton.addEventListener("click", () => {
+        humanChoice = "Paper";
+        playRound();
+    });
+    scissorsButton.addEventListener("click", () => {
+        humanChoice = "Scissors";
+        playRound();
+    });
 
     function getComputerChoice() {
         const choices = ["Rock", "Paper", "Scissors"];  // Array items 0, 1, 2            
@@ -24,7 +32,6 @@ function playGame() {
 
 function playRound() {
 
-        const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
            
         if (humanChoice == computerChoice) {
@@ -38,28 +45,14 @@ function playRound() {
         } 
         roundCounter++;  // increment round counter
         console.log("Round: " + roundCounter + " You: " + humanScore + " Computer: " + computerScore);
+
+        if (computerScore === 5) {
+                console.log("You Lose!");
+            } else if (humanScore === 5) {
+                console.log("You Win!");
+            } else {
+                console.log("Draw!");
+            }
+        
 }
 
-// Call playRound five times
-playRound();
-playRound();
-playRound();
-playRound();
-playRound();
-
-// The player with the highest score is the winner or it's a draw
-
-function showWinner() {
-    if (computerScore > humanScore) {
-        console.log("You Lose!");
-    } else if (humanScore > computerScore) {
-        console.log("You Win!");
-    } else {
-        console.log("Draw!");
-    }
-}
-showWinner();
-
-
-}
-playGame();
