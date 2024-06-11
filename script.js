@@ -86,6 +86,8 @@ function playRound() {
             roundCounter = 1;
             round.textContent = "Round: " + roundCounter;
             score.textContent = "You: 0 vs. JS: 0";
+            score.classList.remove("loser");
+            score.classList.remove("winner");
             rounds.textContent = "";
             
         }
